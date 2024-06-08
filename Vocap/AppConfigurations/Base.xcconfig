@@ -1,0 +1,19 @@
+//
+//  Base.xcconfig
+//  Vocap
+//
+//  Created by Anthony Tran on 8/6/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = Vocap
+
+MARKETING_VERSION = 2
+
+CURRENT_PROJECT_VERSION = 0.1
+
+PRODUCT_BUNDLE_IDENTIFIER = com.viothun.vocap
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon

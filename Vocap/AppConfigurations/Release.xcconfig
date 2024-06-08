@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  Vocap
+//
+//  Created by Anthony Tran on 8/6/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Base.xcconfig"
