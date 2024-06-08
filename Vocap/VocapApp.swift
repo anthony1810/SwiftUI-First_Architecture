@@ -12,6 +12,9 @@ struct VocapApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    print(Environment.apiKey)
+                }
         }
     }
 }

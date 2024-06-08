@@ -14,6 +14,7 @@
 		2F12C6DF2C1407F100AC3E32 /* VocapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C6DE2C1407F100AC3E32 /* VocapTests.swift */; };
 		2F12C6E92C1407F100AC3E32 /* VocapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C6E82C1407F100AC3E32 /* VocapUITests.swift */; };
 		2F12C6EB2C1407F100AC3E32 /* VocapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C6EA2C1407F100AC3E32 /* VocapUITestsLaunchTests.swift */; };
+		2F12C6FC2C141C3600AC3E32 /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C6FB2C141C3600AC3E32 /* EnvironmentConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		2F12C6F82C140F6200AC3E32 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		2F12C6F92C140F7100AC3E32 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2F12C6FA2C140F7D00AC3E32 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2F12C6FB2C141C3600AC3E32 /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
+		2F12C6FD2C14990000AC3E32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 		2F12C6CB2C1407F000AC3E32 /* Vocap */ = {
 			isa = PBXGroup;
 			children = (
+				2F12C6FD2C14990000AC3E32 /* Info.plist */,
 				2F12C6F72C140D6E00AC3E32 /* AppConfigurations */,
 				2F12C6CC2C1407F000AC3E32 /* VocapApp.swift */,
 				2F12C6CE2C1407F000AC3E32 /* ContentView.swift */,
@@ -139,6 +143,7 @@
 				2F12C6F82C140F6200AC3E32 /* Base.xcconfig */,
 				2F12C6F92C140F7100AC3E32 /* Debug.xcconfig */,
 				2F12C6FA2C140F7D00AC3E32 /* Release.xcconfig */,
+				2F12C6FB2C141C3600AC3E32 /* EnvironmentConfiguration.swift */,
 			);
 			path = AppConfigurations;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			files = (
 				2F12C6CF2C1407F000AC3E32 /* ContentView.swift in Sources */,
 				2F12C6CD2C1407F000AC3E32 /* VocapApp.swift in Sources */,
+				2F12C6FC2C141C3600AC3E32 /* EnvironmentConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +447,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vocap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "${APP_NAME}";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -481,6 +488,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vocap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "${APP_NAME}";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
