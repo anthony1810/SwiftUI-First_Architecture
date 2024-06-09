@@ -9,12 +9,16 @@ import SwiftUI
 
 @main
 struct VocapApp: App {
+    
+    static var configuration: LiveAppContainer.Configuration {
+        .init(domainURL: .init(string: "https://dog.ceo/api")!)
+    }
+    
+    @State var container = LiveAppContainer(configuration: configuration)
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear {
-                    print(Environment.apiKey)
-                }
+            container.app
         }
     }
 }

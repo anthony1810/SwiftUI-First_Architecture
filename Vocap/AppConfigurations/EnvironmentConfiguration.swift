@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum Environment {
+enum DevelopmentEnvironment {
     case debug
     case release
     
-    static var current: Environment {
+    static var current: DevelopmentEnvironment {
         #if DEBUG
-        return Environment.debug
+        return DevelopmentEnvironment.debug
         #else
-        return Environment.release
+        return DevelopmentEnvironment.release
         #endif
     }
 }
@@ -50,7 +50,7 @@ enum ConfigurationKey {
 
 // MARK: - Key
 
-extension Environment {
+extension DevelopmentEnvironment {
     static var domain: URL {
         return URL(
             string: try! (ConfigurationKey.value(
@@ -65,6 +65,6 @@ extension Environment {
         )
     }
     
-    var logNetworking: Bool { return Environment.current == .debug }
-    var enableLogger: Bool { return Environment.current == .debug }
+    var logNetworking: Bool { return DevelopmentEnvironment.current == .debug }
+    var enableLogger: Bool { return DevelopmentEnvironment.current == .debug }
 }
