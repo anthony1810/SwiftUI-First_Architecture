@@ -70,7 +70,8 @@ Function:
    + Robustness: Helps in creating more robust and maintainable code by decoupling UI development from data fetching logic.
 
 
-![Project Structure](diagrams/uiflow.png)
+![Project Structure](diagrams/uiflow1.drawio.png)
+![Project Structure](diagrams/uiflow2.drawio.png)
 
 
 ## Installation
