@@ -101,6 +101,9 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 ```git push origin feature/your-feature-name```
 5. Create a Pull Request.
 
+## Full Example Projects
+- [Breed App](https://github.com/anthony1810/BreedApp_SwiftUI): DogBreed App is a mobile application developed using Swift and SwiftUI that allows users to identify different breeds of dogs. This project implements the SwiftUI First design pattern, an alternative to MVVM.
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
