@@ -25,6 +25,53 @@ Finally, the Live App Container uses real data for the application, while the Mo
 
 ![Project Structure](diagrams/AppContainerDiagram.png)
 
+### UI Layer
+A typical UI flow includes the following components
+
+1. **Screen Flow**: 
+***Definition***: The main component that manages navigation and dependency injection for a specific feature or section of the app.
+***Example***: FavoritesFlow<Container: AppContainer>: View
+***Function***:
+- Initializes and manages the navigation stack.
+- Injects dependencies into the screen.
+- Ensures smooth transitions and data flow between different views and screens.
+
+2. **Screen Factory**:
+***Definition***: A protocol and its implementations that provide the necessary data and dependencies for a screen.
+***Example:*** protocol FavoritesScreenFactory: ViewInjectable
+***Function***:
+- Defines methods for creating screen data and injecting dependencies.
+- Can have multiple implementations for different data sources (e.g., mock data, live data).
+- Facilitates separation of concerns by abstracting data creation and dependency management.
+  
+3. **Screen Data**:
+***Definition***: A protocol and its implementations that define the data model for a screen.
+***Example***: protocol FavoritesScreenData: DynamicProperty
+***Function***:
+- Provides the necessary data for the screen, typically as a collection of items.
+- Defines methods to retrieve individual data items.
+- Can be implemented using various data sources (e.g., mock data, database).
+
+5. **Views**:
+***Definition***: The individual UI components that make up a screen.
+***Example***: FavoritesGridItem: View
+***Function***:
+- Represent different parts of the screen, such as lists, grids, buttons, and images.
+- Handle user interactions and state changes.
+- Are reusable and can be composed to create complex UIs.
+
+***Importance of Mocks***
+- Purpose: Provide mock implementations for factories and data sources to facilitate testing and previews.
+- Components: MockFavoritesScreenData and MockFavoritesScreenFactory
+- Importance:
+   + Testing: Allow developers to simulate various states and interactions without relying on live data or backend services.
+   + Previews: Enable SwiftUI previews to display the UI with predefined mock data, ensuring that the UI can be developed and tested independently.
+   + Robustness: Helps in creating more robust and maintainable code by decoupling UI development from data fetching logic.
+
+
+![Project Structure](diagrams/uiflow.png)
+
+
 ## Installation
 
 To get started with the DogBreed App, follow these steps:
