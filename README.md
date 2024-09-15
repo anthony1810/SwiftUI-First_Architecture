@@ -105,7 +105,7 @@ Another interesting point of this pattern is the use of the SwiftUI Environment 
 
 Finally, the Live App Container uses real data for the application, while the Mock App Container is configured for use in previews.
 
-![Project Structure](diagrams/AppContainerDiagram.png)
+![Project Structure](diagrams/AppContainerDiagram2.png)
 
 ### UI Layer
 A typical UI flow includes the following components
