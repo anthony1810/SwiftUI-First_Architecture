@@ -11,6 +11,7 @@ Then I read [Stop Using MVVM for SwiftUI](https://forums.developer.apple.com/for
 This project demonstrates the power of this pattern and marks my transition away from MVVM for SwiftUI.
 
 I prepared a Slide here if you need more reasons to move away from MVVM: https://www.canva.com/design/DAGN0dIE6X8/yNebkOt0Et40xE9EdcydjA/view
+
 There is a on-going discussion about that topic, feel free if you want to join here: https://www.linkedin.com/posts/quang-tran-7780a962_i-just-finished-a-session-with-my-team-where-activity-7236295744528211969-4u3f
 
 ![Project Structure](diagrams/architecture.png)
