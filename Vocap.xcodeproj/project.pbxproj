@@ -64,6 +64,7 @@
 		2F12C73D2C14A8AD00AC3E32 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C73C2C14A8AD00AC3E32 /* LoadingState.swift */; };
 		2F12C73F2C14A8FB00AC3E32 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C73E2C14A8FB00AC3E32 /* AppSettings.swift */; };
 		2F12C7412C14AA7100AC3E32 /* AppActions+Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C7402C14AA7100AC3E32 /* AppActions+Favorites.swift */; };
+		926309992C967C5400C46E26 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 926309982C967C5400C46E26 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		2F12C73C2C14A8AD00AC3E32 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		2F12C73E2C14A8FB00AC3E32 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		2F12C7402C14AA7100AC3E32 /* AppActions+Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppActions+Favorites.swift"; sourceTree = "<group>"; };
+		926309982C967C5400C46E26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 		2F12C6C02C1407F000AC3E32 = {
 			isa = PBXGroup;
 			children = (
+				926309982C967C5400C46E26 /* README.md */,
 				2F12C6CB2C1407F000AC3E32 /* Vocap */,
 				2F12C6DD2C1407F100AC3E32 /* VocapTests */,
 				2F12C6E72C1407F100AC3E32 /* VocapUITests */,
@@ -620,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926309992C967C5400C46E26 /* README.md in Resources */,
 				2F12C6D52C1407F100AC3E32 /* Preview Assets.xcassets in Resources */,
 				2F12C6D12C1407F100AC3E32 /* Assets.xcassets in Resources */,
 			);

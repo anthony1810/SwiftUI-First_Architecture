@@ -2,6 +2,7 @@
 I have developed multiple SwiftUI apps, ranging from small to large, available on the App Store.
 In all of them, I use MVVM-C, a pattern I have relied on to develop UIKit apps for most of my career. 
 I can't complain; it works well with UIKit apps, whether using Combine or RxSwift.
+I am a fan of SOLID and Clean architect.
 
 However, I always felt something was missing, something unnatural. 
 It seemed like I was bending SwiftUI to fit MVVM, which was often inconvenient.
@@ -10,6 +11,63 @@ Then I read [Stop Using MVVM for SwiftUI](https://forums.developer.apple.com/for
 This project demonstrates the power of this pattern and marks my transition away from MVVM for SwiftUI.
 
 ![Project Structure](diagrams/architecture.png)
+1. **Domain/ Core**:  
+   - Core entities such as Breed or SubBreed, Utilities, and other helpers that represent core business logic of the app  
+   - Will be used directly by the UI Layer & the Infrastructure Layer to guarantee fast build time  
+   - Data from different layers must transform into these entities to be used by the UI Layer
+   
+2. **Infrastructure Layer**:  
+   - Alamofire, Realm, MixPanel, and other third-party frameworks can stay here  
+   - Provide tools to form the service layer  
+   - Infrastructure should use Core Entities to prevent boilerplate of converting back and forth and provide faster build time  
+
+3. **Services**: Built on top of the Infrastructure layer  
+   - Provide services from the Infrastructure layer  
+   - Will be assigned as UseCases to AppActions and shared across all app modules  
+   - Drive AppStates to be shared across all app modules  
+
+4. **UI Layer**:  
+   - ScreenFlow: Manages Navigation and manages AppContainer Dependency to be used inside the Screen  
+   - ScreenFactory: Prepares necessary data from ScreenData to be used for the Screen  
+   - ScreenData: Abstract data needed to be presented on the Screen  
+   - Screens: Holds a reference to ScreenFactory as the source of truth for data to be shown, accesses shared state from AppStates, and uses services from AppActions  
+   
+![Project Structure](diagrams/modularity.png)
+For larger apps, This Architect support Modularity, follow this guideline to break your apps into smaller, logical components. 
+This is recommended approach to adhering to SOLID principles.
+```
+let package = Package(
+  name: "Package",
+  products: [
+    .library(name: "Core", targets: ["Core"]),
+    .library(name: "AppUI", targets: ["AppUI"]),
+    .library(name: "APIClient", targets: ["APIClient"]),
+    .library(name: "AppServices", targets: ["AppServices"]),
+    .library(name: "LiveApp", targets: ["LiveApp"]),
+  ],
+  targets: [
+    // MARK: Core
+    
+    .target(name: "Core"),
+    
+    // MARK: UI
+    
+    .target(name: "AppUI", dependencies: ["Core"]),
+    
+    // MARK: Infrastructure
+    
+    .target(name: "APIClient", dependencies: ["Core"]),
+    
+    // MARK: Service
+    
+    .target(name: "AppServices", dependencies: ["Core", "APIClient", "AppUI"]),
+    
+    // MARK: Live
+    
+    .target(name: "LiveApp", dependencies: ["Core", "AppUI", "APIClient", "AppServices"]),
+  ]
+)
+```
 
 ## Why SwiftUI First?
 
@@ -23,6 +81,9 @@ This project demonstrates the power of this pattern and marks my transition away
 - **Performance Issues**: Modeling all state with @Published properties in a single ObservableObject reduces granularity in view updates, causing performance inefficiencies.
 - **Restrictive Nature**: MVVM feels restrictive, forcing SwiftUI to conform to architectural dogmas rather than leveraging SwiftUI’s strengths.
 
+I prepared a Slide here if you need more reasons to move away from MVVM: https://www.canva.com/design/DAGN0dIE6X8/yNebkOt0Et40xE9EdcydjA/view
+There is a on-going discussion about that topic, feel free if you want to join here: https://www.linkedin.com/posts/quang-tran-7780a962_i-just-finished-a-session-with-my-team-where-activity-7236295744528211969-4u3f
+
 ### Benefits of SwiftUI First
 
 A SwiftUI-first architecture fully embraces and utilizes the tools provided by SwiftUI:
@@ -34,12 +95,11 @@ A SwiftUI-first architecture fully embraces and utilizes the tools provided by S
 - **Flexibility**: SwiftUI’s evolution includes new features and capabilities, such as the App lifecycle, Widgets, App Intents, Concurrency, and Observability. An adaptable architecture allows easy incorporation of these new features.
 
 ### App Container
-Everything revolves around the `App Container` where all the dependencies are initialized, including:
-
-1. **Infrastructure Layer**: Such as the Realm framework and API layer.
-2. **Services**: Built on top of the Infrastructure layer, including `BreedListService` and `FavoritesService`.
-3. **UI Layer**: ScreenFlows responsible for ScreenData and Screen Navigation.
-4. **Domain**: Core entities such as Breed or SubBreed and other helpers.
+Everything revolves around the `App Container` 
+- An interface to create LiveApp with real dependencies or MockApp with mock data and dependencies
+- Hold AppDependency including AppStates and AppActions. AppStates hold shared states of the app. AppActions hold App's'UseCases.
+- Hold App View - A Root View where the UI Layer Started
+- Initilize all components (Infrastructure, Services, AppDependency) base on a specific Configuration(API endpoints, 3rd party Authentication Keys, ...)
 
 Another interesting point of this pattern is the use of the SwiftUI Environment to pass around global services like `BreedListService` as `AppActions` and `AppStates`, allowing any view to access them in a way that respects the nature of SwiftUI.
 
@@ -92,8 +152,7 @@ Function:
    + Robustness: Helps in creating more robust and maintainable code by decoupling UI development from data fetching logic.
 
 
-![Project Structure](diagrams/uiflow1.drawio.png)
-![Project Structure](diagrams/uiflow2.drawio.png)
+![Project Structure](diagrams/uiflow.png)
 
 
 ## Installation
