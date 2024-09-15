@@ -10,6 +10,9 @@ It seemed like I was bending SwiftUI to fit MVVM, which was often inconvenient.
 Then I read [Stop Using MVVM for SwiftUI](https://forums.developer.apple.com/forums/thread/699003), and that’s when I discovered the [SwiftUI First pattern](https://apurin.me/articles/swiftui-first/). 
 This project demonstrates the power of this pattern and marks my transition away from MVVM for SwiftUI.
 
+I prepared a Slide here if you need more reasons to move away from MVVM: https://www.canva.com/design/DAGN0dIE6X8/yNebkOt0Et40xE9EdcydjA/view
+There is a on-going discussion about that topic, feel free if you want to join here: https://www.linkedin.com/posts/quang-tran-7780a962_i-just-finished-a-session-with-my-team-where-activity-7236295744528211969-4u3f
+
 ![Project Structure](diagrams/architecture.png)
 1. **Domain/ Core**:  
    - Core entities such as Breed or SubBreed, Utilities, and other helpers that represent core business logic of the app  
@@ -80,9 +83,6 @@ let package = Package(
 - **View State Management**: Under strict MVVM, handling states like focus or fetching Core Data objects in ViewModel is challenging.
 - **Performance Issues**: Modeling all state with @Published properties in a single ObservableObject reduces granularity in view updates, causing performance inefficiencies.
 - **Restrictive Nature**: MVVM feels restrictive, forcing SwiftUI to conform to architectural dogmas rather than leveraging SwiftUI’s strengths.
-
-I prepared a Slide here if you need more reasons to move away from MVVM: https://www.canva.com/design/DAGN0dIE6X8/yNebkOt0Et40xE9EdcydjA/view
-There is a on-going discussion about that topic, feel free if you want to join here: https://www.linkedin.com/posts/quang-tran-7780a962_i-just-finished-a-session-with-my-team-where-activity-7236295744528211969-4u3f
 
 ### Benefits of SwiftUI First
 
